@@ -13,7 +13,7 @@ mpu = mpu6050(0x68)
 class MpuMsgsNode(Node):
     def __init__(self):
         super().__init__("mpu_sensor_msgs")
-        self.mpu6050_sensor_pub_ = self.create_publisher(Imu, "/mpu",qos_profile=qos.qos_profile_sensor_data)
+        self.mpu6050_sensor_pub_ = self.create_publisher(Imu, "/imu",qos_profile=qos.qos_profile_sensor_data)
         self.timer_ = self.create_timer(0.5,self.send_imu_command)
         self.get_logger().info("mpu6050 to imu Msgs node has been started")
     def send_imu_command(self):
